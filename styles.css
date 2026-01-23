@@ -204,27 +204,6 @@ body {
   box-shadow: 0 18px 60px rgba(0, 140, 255, 0.65);
 }
 
-/* Auto redirect button*/
-.auto-redirect-btn {
-    margin-top: 12px;
-    padding: 14px 22px;
-    width: 100%;
-    border: none;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    background: linear-gradient(135deg, #d4af37, #f5d76e);
-    color: #111;
-    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
-    transition: all 0.3s ease;
-}
-
-.auto-redirect-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 25px rgba(212, 175, 55, 0.6);
-}
-
 /* Pulse animation */
 @keyframes pulseGlow {
   0% { box-shadow: 0 0 0 rgba(0,140,255,0.6); }
