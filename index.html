@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hafiz Ayaan Siddiqui</title>
 
-<link rel="stylesheet" href="styles.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 
 <!-- Meta Pixel -->
 <script>
@@ -20,7 +20,9 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 
 fbq('init', '1268759441837592');
 fbq('track', 'PageView');
-fbq('track', 'Lead');
+fbq('track', 'ViewContent', {
+  content_name: 'Trading Landing Page'
+});
 </script>
 </head>
 
@@ -50,10 +52,8 @@ fbq('track', 'Lead');
     </div>
 
     <a href="https://t.me/+tvhoe5HpinQ1MmRk"
-       target="_blank"
-       rel="noopener"
        class="telegram-btn pulse"
-       onclick="fbq('trackCustom','TelegramJoin');">
+       onclick="trackTelegram(event)">
        🚀 Join Private Telegram 🚀
     </a>
 
@@ -76,12 +76,29 @@ fbq('track', 'Lead');
 </main>
 
 <script>
+// Telegram Click Tracking
+function trackTelegram(e) {
+    e.preventDefault();
+
+    fbq('track', 'Lead', {
+        content_name: 'Telegram Join Click',
+        value: 0,
+        currency: 'INR'
+    });
+
+    setTimeout(() => {
+        window.open("https://t.me/+tvhoe5HpinQ1MmRk", "_blank");
+    }, 150);
+}
+
+// Fake subscriber counter animation
 let count = 12845;
 setInterval(() => {
     count += Math.floor(Math.random() * 3);
     subCount.innerText = count.toLocaleString();
 }, 3000);
 
+// Live viewers animation
 let viewers = Math.floor(Math.random() * 20) + 30;
 setInterval(() => {
     viewers += Math.floor(Math.random() * 5) - 2;
@@ -89,8 +106,13 @@ setInterval(() => {
     viewerCount.innerText = viewers;
 }, 4000);
 
+// Auto redirect after 8s (also counts as Lead)
 setTimeout(() => {
-    fbq('trackCustom', 'AutoRedirectTelegram');
+    fbq('track', 'Lead', {
+        content_name: 'Auto Telegram Redirect',
+        value: 0,
+        currency: 'INR'
+    });
     window.location.href = "https://t.me/+tvhoe5HpinQ1MmRk";
 }, 8000);
 </script>
