@@ -108,15 +108,6 @@ setInterval(() => {
     viewerCount.innerText = viewers;
 }, 4000);
 
-// Auto redirect after 8s (also counts as Lead)
-setTimeout(() => {
-    fbq('track', 'Lead', {
-        content_name: 'Auto Telegram Redirect',
-        value: 0,
-        currency: 'INR'
-    });
-    window.location.href = "https://t.me/+tvhoe5HpinQ1MmRk";
-}, 8000);
 </script>
 
 </body>
