@@ -71,18 +71,17 @@ fbq('track', 'ViewContent', {
 
     <div class="disclaimer">
         This Channel provides trading content only. 
-      
-      Past performance does not guarantee future results
+        Past performance does not guarantee future results
     </div>
 
 </main>
 
 <script>
-// Telegram Click Tracking
+// Telegram Click Tracking (SUBSCRIBE EVENT)
 function trackTelegram(e) {
     e.preventDefault();
 
-    fbq('track', 'Lead', {
+    fbq('track', 'Subscribe', {
         content_name: 'Telegram Join Click',
         value: 1,
         currency: 'INR'
@@ -93,19 +92,23 @@ function trackTelegram(e) {
     }, 150);
 }
 
-// Fake subscriber counter animation
+// Subscriber counter animation
 let count = 12845;
+const subCounter = document.getElementById("subCount");
+
 setInterval(() => {
     count += Math.floor(Math.random() * 3);
-    subCount.innerText = count.toLocaleString();
+    subCounter.innerText = count.toLocaleString();
 }, 3000);
 
 // Live viewers animation
 let viewers = Math.floor(Math.random() * 20) + 30;
+const viewerCounter = document.getElementById("viewerCount");
+
 setInterval(() => {
     viewers += Math.floor(Math.random() * 5) - 2;
     viewers = Math.max(25, Math.min(80, viewers));
-    viewerCount.innerText = viewers;
+    viewerCounter.innerText = viewers;
 }, 4000);
 
 </script>
