@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hafiz Ayaan Siddiqui</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-
-<!-- Meta Pixel -->
+<!-- Meta Pixel Code -->
 <script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f.fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
@@ -24,93 +18,106 @@ fbq('track', 'ViewContent', {
   content_name: 'Trading Landing Page'
 });
 </script>
-</head>
 
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1268759441837592&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
+    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hafiz Ayaan Siddiqui</title>
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+</head>
 <body>
 
-<div class="bg-animate"></div>
+<div class="background"></div>
+<div class="gold-glow"></div>
 
-<main class="card glass">
+<main class="card luxury-float">
 
-    <div class="profile-ring shimmer">
-        <img src="profile.jpg" alt="Profile">
+    <div class="profile-wrapper">
+        <div class="profile-ring shimmer">
+            <img src="profile.JPG" alt="Profile">
+        </div>
     </div>
 
-    <h1 class="gold-text glow-text">
-        HAFIZ<br><span>AYAAN SIDDIQUI</span>
+    <h1 class="gold-text">
+        HAFIZ AYAAN SIDDIQUI
     </h1>
 
-    <p class="trust">✔ Trusted by 7,000+ investors worldwide</p>
+    <p class="trust">
+        ✅ Trusted by 7,000+ investors
+    </p>
 
     <div class="subscriber-box">
-        <span id="subCount">12,845</span>
-        <div class="sub-label">Telegram Subscribers</div>
+        <span class="count" id="subCount">15,735</span>
+        <span class="label">Telegram Subscribers</span>
     </div>
 
-    <div class="visitor-box">
-        🔴 <span id="viewerCount">37</span> people viewing now
+    <div class="badge-row">
+        <span class="badge">24/7 Updates</span>
+        <span class="badge">Free to Join</span>
     </div>
 
+    <!-- Telegram Button -->
     <a href="https://t.me/+tvhoe5HpinQ1MmRk"
-       class="telegram-btn pulse"
+       target="_blank"
+       rel="noopener"
+       class="telegram-btn"
        onclick="trackTelegram(event)">
        🚀 Join Private Telegram 🚀
     </a>
 
-    <div class="badge-row">
-        <span class="badge">24/7 Signals</span>
-        <span class="badge">Expert Analysis</span>
-        <span class="badge">Free Access</span>
-    </div>
-
     <div class="features">
-        <div>✔ Smart Money Concepts</div>
-        <div>✔ Live Market Updates</div>
-        <div>✔ Risk Management Lessons</div>
+        <div class="feature">✅ Practical Strategies</div>
+        <div class="feature">✅ Learn with Experts</div>
+        <div class="feature">✅ Market Insights & Discussions</div>
     </div>
 
     <div class="disclaimer">
-        This Channel provides trading content only. 
-        Past performance does not guarantee future results
+      <strong>Disclaimer:</strong><br>
+      This website is for Telegram channel.<br>
+      Visit our Telegram channel to learn & earn.
     </div>
+
+    <footer>
+      © 2026 Hafiz Ayaan Siddiqui<br>
+      <a href="https://t.me/+tvhoe5HpinQ1MmRk" target="_blank" rel="noopener">Official Telegram</a>
+    </footer>
 
 </main>
 
 <script>
-// Telegram Click Tracking (SUBSCRIBE EVENT)
+// Telegram Click Tracking
 function trackTelegram(e) {
     e.preventDefault();
+
+    let eventID = 'tg_subscribe_' + Date.now();
 
     fbq('track', 'Subscribe', {
         content_name: 'Telegram Join Click',
         value: 1,
-        currency: 'INR'
+        currency: 'INR',
+        eventID: eventID
     });
 
     setTimeout(() => {
         window.open("https://t.me/+tvhoe5HpinQ1MmRk", "_blank");
-    }, 150);
+    }, 400);
 }
 
-// Subscriber counter animation
-let count = 12845;
-const subCounter = document.getElementById("subCount");
+/* Animated Subscriber Counter */
+let count = 15735;
+const counter = document.getElementById("subCount");
 
 setInterval(() => {
     count += Math.floor(Math.random() * 3);
-    subCounter.innerText = count.toLocaleString();
+    counter.innerText = count.toLocaleString();
 }, 3000);
-
-// Live viewers animation
-let viewers = Math.floor(Math.random() * 20) + 30;
-const viewerCounter = document.getElementById("viewerCount");
-
-setInterval(() => {
-    viewers += Math.floor(Math.random() * 5) - 2;
-    viewers = Math.max(25, Math.min(80, viewers));
-    viewerCounter.innerText = viewers;
-}, 4000);
-
 </script>
 
 </body>
