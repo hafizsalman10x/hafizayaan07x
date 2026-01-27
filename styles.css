@@ -1,112 +1,182 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
 
 body {
-    font-family: 'Poppins', sans-serif;
-    height: 100vh;
-    background: #0a0a0f;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+  background: radial-gradient(circle at top, #0c0c0c, #000000 70%);
+  color: #fff;
+  overflow-x: hidden;
+  position: relative;
 }
 
-/* Animated background glow */
-.bg-animate {
-    position: fixed;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,215,0,0.08), transparent 60%);
-    animation: moveBg 15s linear infinite;
-}
-@keyframes moveBg {
-    from { transform: translate(-20%, -20%); }
-    to { transform: translate(20%, 20%); }
+/* GOLD PARTICLE BACKGROUND */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(rgba(255,215,0,0.15) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: moveParticles 60s linear infinite;
+  z-index: -5;
 }
 
-/* Glass card */
+@keyframes moveParticles {
+  from { transform: translate(0,0); }
+  to { transform: translate(-300px,-300px); }
+}
+
+/* GLOW LAYERS */
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #000000, #0a0a0a);
+  z-index: -4;
+}
+
+.gold-glow {
+  position: fixed;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(255, 200, 0, 0.18), transparent 70%);
+  top: -200px;
+  right: -200px;
+  filter: blur(100px);
+  z-index: -3;
+}
+
+/* LUXURY GLASS CARD */
 .card {
-    width: 90%;
-    max-width: 420px;
-    padding: 35px 25px;
-    border-radius: 22px;
-    text-align: center;
-    backdrop-filter: blur(20px);
-    background: rgba(20,20,20,0.6);
-    border: 1px solid rgba(255,215,0,0.2);
-    box-shadow: 0 0 60px rgba(255,215,0,0.15);
-    animation: float 5s ease-in-out infinite;
+  width: 92%;
+  max-width: 420px;
+  margin: 60px auto;
+  padding: 30px 25px;
+  border-radius: 22px;
+  backdrop-filter: blur(18px);
+  background: rgba(20, 20, 20, 0.75);
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  box-shadow:
+    0 0 50px rgba(255, 200, 0, 0.08),
+    inset 0 0 40px rgba(255, 215, 0, 0.03);
+  text-align: center;
 }
+
+.luxury-float {
+  animation: float 6s ease-in-out infinite;
+}
+
 @keyframes float {
-    50% { transform: translateY(-10px); }
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
-/* Profile */
+/* PROFILE RING */
+.profile-ring {
+  padding: 6px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, gold, #fff1a8, gold);
+  box-shadow: 0 0 20px rgba(255,215,0,0.6);
+}
+
 .profile-ring img {
-    width: 120px;
-    border-radius: 50%;
-    border: 3px solid gold;
-    box-shadow: 0 0 25px gold;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: block;
 }
 
-/* Gold text glow */
-.gold-text { color: gold; }
-.glow-text { text-shadow: 0 0 15px gold; }
+/* GOLD TEXT */
+.gold-text {
+  font-size: 22px;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffd700, #fff5c0, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
 
-.trust { margin: 12px 0; color: #ddd; }
+/* TRUST */
+.trust { color: #ccc; font-size: 14px; }
 
-/* Counters */
+/* SUBSCRIBER BOX */
 .subscriber-box {
-    font-size: 24px;
-    font-weight: 700;
-    color: gold;
-    margin-top: 10px;
-}
-.sub-label { font-size: 12px; color: #aaa; }
-
-.visitor-box { margin-top: 8px; font-size: 14px; color: #ff4d4d; }
-
-/* Telegram button */
-.telegram-btn {
-    display: block;
-    margin: 22px 0;
-    padding: 16px;
-    border-radius: 14px;
-    background: linear-gradient(45deg,#0088cc,#00e1ff);
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    box-shadow: 0 0 25px rgba(0,225,255,0.6);
-    transition: 0.3s;
-}
-.telegram-btn:hover { transform: scale(1.05); }
-
-.pulse { animation: pulse 2s infinite; }
-@keyframes pulse {
-    0% { box-shadow: 0 0 20px rgba(0,225,255,0.5); }
-    50% { box-shadow: 0 0 35px rgba(0,225,255,1); }
+  margin: 15px 0;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255,215,0,0.07);
+  border: 1px solid rgba(255,215,0,0.25);
 }
 
-/* Badges */
-.badge-row { margin-top: 10px; }
+.count { color: gold; font-size: 20px; font-weight: 600; }
+.label { font-size: 12px; color: #aaa; }
+
+/* BADGES */
 .badge {
-    display: inline-block;
-    margin: 5px;
-    padding: 6px 12px;
-    font-size: 12px;
-    border-radius: 8px;
-    border: 1px solid rgba(255,215,0,0.4);
+  display: inline-block;
+  padding: 6px 12px;
+  margin: 4px;
+  font-size: 12px;
+  border-radius: 50px;
+  background: rgba(255,215,0,0.12);
+  border: 1px solid rgba(255,215,0,0.3);
 }
 
-/* Features */
-.features div {
-    margin-top: 6px;
-    font-size: 14px;
-    color: #e6e6e6;
+/* ULTRA CTA BUTTON */
+.telegram-btn {
+  position: relative;
+  display: block;
+  background: linear-gradient(45deg, #ffd700, #ffcc00);
+  color: #000;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: 50px;
+  text-decoration: none;
+  margin: 18px 0;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(255,215,0,0.6);
+  transition: 0.3s;
 }
 
-.disclaimer {
-    margin-top: 15px;
-    font-size: 11px;
-    color: #999;
+.telegram-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  60% { left: 120%; }
+  100% { left: 120%; }
+}
+
+.telegram-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 35px rgba(255,215,0,0.9);
+}
+
+/* FEATURES */
+.features { text-align: left; color: #ddd; font-size: 14px; }
+.feature { margin: 6px 0; }
+
+/* DISCLAIMER */
+.disclaimer { font-size: 11px; color: #777; margin: 18px 0; }
+
+/* FOOTER */
+footer { font-size: 12px; color: #aaa; }
+footer a { color: gold; text-decoration: none;
+}
+
+@keyframes fadeInOut {
+  0%,100% { opacity: 0; transform: translateY(10px); }
+  10%,90% { opacity: 1; transform: translateY(0); }
 }
