@@ -1,4 +1,3 @@
-/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -7,182 +6,282 @@
 }
 
 body {
-  background: radial-gradient(circle at top, #0f0f0f, #050505 70%);
-  color: #fff;
+  min-height: 100vh;
+  background: #07090e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
   overflow-x: hidden;
-  position: relative;
+  padding: 20px;
 }
 
-/* Background Glow Effects */
+/* Background pattern */
 .background {
   position: fixed;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #000000 40%, #111111);
-  z-index: -3;
-}
-
-.gold-glow {
-  position: fixed;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(255, 200, 0, 0.15), transparent 70%);
-  top: -150px;
-  right: -150px;
-  filter: blur(80px);
+  inset: 0;
+  background:
+    linear-gradient(145deg, #06080d, #0b1020),
+    repeating-linear-gradient(
+      60deg,
+      rgba(255, 215, 120, 0.03) 0,
+      rgba(255, 215, 120, 0.03) 1px,
+      transparent 1px,
+      transparent 40px
+    );
   z-index: -2;
 }
 
-/* Main Card */
+/* Gold glow */
+.gold-glow {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(255, 200, 80, 0.28), transparent 70%);
+  filter: blur(90px);
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  animation: glowFloat 8s ease-in-out infinite alternate;
+}
+
+@keyframes glowFloat {
+  from { transform: translateX(-50%) scale(1); }
+  to { transform: translateX(-48%) scale(1.1); }
+}
+
+/* Card */
 .card {
-  width: 92%;
-  max-width: 420px;
-  margin: 50px auto;
-  padding: 30px 25px;
-  border-radius: 20px;
-  background: linear-gradient(145deg, #111, #0a0a0a);
-  box-shadow: 0 0 40px rgba(255, 180, 0, 0.08);
-  border: 1px solid rgba(255, 215, 0, 0.08);
+  width: 100%;
+  max-width: 380px;
+  padding: 40px 28px;
+  border-radius: 26px;
+  background: linear-gradient(180deg, #0f1426, #090d18);
+  box-shadow:
+    0 40px 90px rgba(0, 0, 0, 0.85),
+    inset 0 0 0 1px rgba(255, 215, 120, 0.05);
   text-align: center;
 }
 
 /* Floating animation */
 .luxury-float {
-  animation: float 6s ease-in-out infinite;
+  animation: floatCard 6s ease-in-out infinite;
 }
 
-@keyframes float {
-  0%,100% { transform: translateY(0px); }
+@keyframes floatCard {
+  0% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
-/* Profile Image */
+/* Profile */
 .profile-wrapper {
-  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .profile-ring {
-  padding: 5px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  background: linear-gradient(45deg, gold, #ffcc00, gold);
-  display: inline-block;
+  padding: 4px;
+  background: linear-gradient(135deg, #ffd36a, #b88900);
+  box-shadow: 0 0 28px rgba(255, 200, 80, 0.4);
 }
 
 .profile-ring img {
-  width: 110px;
-  height: 110px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
-  display: block;
+  object-fit: cover;
+  border: 4px solid #0b0f1d;
 }
 
-/* Shimmer Effect */
+/* Gold shimmer */
 .shimmer {
-  animation: shimmer 3s infinite linear;
-  background-size: 200% auto;
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes shimmer {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.6),
+    transparent 70%
+  );
+  animation: shimmerMove 3s infinite;
 }
 
-/* Gold Heading */
+@keyframes shimmerMove {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+/* Heading */
 .gold-text {
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 700;
-  background: linear-gradient(45deg, #ffd700, #fff2a8, #ffd700);
+  line-height: 1.2;
+  margin-bottom: 12px;
+  background: linear-gradient(90deg, #ffd36a, #fff0b3, #b88900);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 10px;
 }
 
-/* Trust Text */
+.gold-text span {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Trust text */
 .trust {
   font-size: 14px;
-  color: #bbb;
-  margin-bottom: 15px;
+  color: #cfd6e4;
+  margin-bottom: 22px;
 }
 
-/* Subscriber Box */
+/* Subscriber counter */
 .subscriber-box {
-  background: rgba(255, 215, 0, 0.08);
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  padding: 12px;
-  border-radius: 12px;
-  margin-bottom: 15px;
+  background: rgba(255, 215, 120, 0.08);
+  border: 1px solid rgba(255, 215, 120, 0.25);
+  border-radius: 18px;
+  padding: 14px;
+  margin-bottom: 24px;
 }
 
-.count {
-  font-size: 20px;
-  font-weight: 600;
-  color: gold;
+.subscriber-box .count {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffd36a;
 }
 
-.label {
+.subscriber-box .label {
+  display: block;
   font-size: 12px;
-  color: #ccc;
+  opacity: 0.8;
 }
 
 /* Badges */
 .badge-row {
-  margin-bottom: 20px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 26px;
 }
 
 .badge {
-  display: inline-block;
-  padding: 6px 12px;
-  margin: 4px;
-  font-size: 12px;
-  border-radius: 50px;
-  background: rgba(255, 215, 0, 0.12);
-  border: 1px solid rgba(255, 215, 0, 0.3);
+  padding: 8px 14px;
+  font-size: 13px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Telegram Button */
+/* Telegram button */
 .telegram-btn {
   display: block;
-  background: linear-gradient(45deg, #ffcc00, #ffd700);
-  color: #000;
-  font-weight: 600;
-  padding: 14px;
-  border-radius: 50px;
   text-decoration: none;
-  margin: 15px 0 20px;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+  background: linear-gradient(135deg, #008cff, #00c6ff);
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 18px;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 28px;
+  box-shadow: 0 15px 45px rgba(0, 140, 255, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: pulseGlow 2s infinite;
 }
 
 .telegram-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+  box-shadow: 0 18px 60px rgba(0, 140, 255, 0.65);
+}
+.auto-redirect-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+/* Auto Redirect Countdown */
+.auto-redirect-btn {
+  padding: 14px 26px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 40px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: linear-gradient(135deg, #1c2b36, #0f1720);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.15),
+              inset 0 0 8px rgba(255,255,255,0.05);
+  backdrop-filter: blur(6px);
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.auto-redirect-btn.active {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0, 198, 255, 0.7);
+}
+
+.auto-redirect-btn:hover.active {
+  transform: translateY(-2px);
+}
+
+/* Pulse animation */
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 rgba(0,140,255,0.6); }
+  50% { box-shadow: 0 0 28px rgba(0,140,255,0.9); }
+  100% { box-shadow: 0 0 0 rgba(0,140,255,0.6); }
 }
 
 /* Features */
 .features {
-  text-align: left;
-  font-size: 14px;
-  color: #ddd;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 26px;
 }
 
 .feature {
-  margin: 6px 0;
+  padding: 14px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 14px;
+  font-size: 14px;
+  border: 1px solid rgba(255,255,255,0.06);
 }
 
 /* Disclaimer */
 .disclaimer {
-  font-size: 11px;
-  color: #888;
-  margin-bottom: 20px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #bdbdbd;
+  background: rgba(255,255,255,0.04);
+  padding: 14px;
+  border-radius: 14px;
+  margin-bottom: 22px;
+  border: 1px solid rgba(255,255,255,0.06);
 }
 
 /* Footer */
 footer {
   font-size: 12px;
-  color: #aaa;
+  color: #8f8f8f;
 }
 
 footer a {
-  color: gold;
+  color: #ffd36a;
   text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
