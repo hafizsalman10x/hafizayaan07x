@@ -1,27 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f.fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-
-t.src='https://capig.stape.id/fbevents.js';
-
-s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script');
-
-fbq('init', '1207170701547324');
-fbq('track', 'PageView');
-</script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hafiz Ayaan Siddiqui</title>
 <link rel="stylesheet" href="styles.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
@@ -37,14 +23,13 @@ fbq('track', 'PageView');
     </div>
 
     <h1 class="gold-text">
-        HAFIZ AYAAN SIDDIQUI<br>
+        HAFIZ AYAAN SIDDIQUI
     </h1>
 
     <p class="trust">
         ✅ Trusted by 7,000+ investors
     </p>
 
-    <!-- Telegram Subscriber Count -->
     <div class="subscriber-box">
         <span class="count" id="subCount">15,735</span>
         <span class="label">Telegram Subscribers</span>
@@ -55,11 +40,12 @@ fbq('track', 'PageView');
         <span class="badge">Free to Join</span>
     </div>
 
-    <!-- Telegram Button -->
-    <a href="https://t.me/+bKDGJToVeqo3ZDE8"
-       class="telegram-btn"
-       onclick="trackSubscribeAndRedirect(event)">
-       🚀Join Private Telegram🚀
+    <!-- Telegram Button (No Tracking) -->
+    <a href="https://t.me/+bKDGJToVeqo3ZDE8" class="telegram-btn telegram-pulse">
+        <svg class="tg-icon" viewBox="0 0 24 24">
+            <path d="M9.04 15.47l-.39 5.48c.56 0 .8-.24 1.09-.53l2.62-2.5 5.44 3.98c1 .55 1.71.26 1.96-.92l3.56-16.7c.3-1.4-.5-1.95-1.48-1.59L1.57 9.1c-1.36.53-1.34 1.29-.23 1.63l5.1 1.59 11.84-7.46c.56-.34 1.07-.15.65.19"/>
+        </svg>
+        <span>Join Private Telegram</span>
     </a>
 
     <div class="features">
@@ -68,14 +54,11 @@ fbq('track', 'PageView');
         <div class="feature">✅ Market Insights & Discussions</div>
     </div>
 
-    <!-- Disclaimer -->
     <div class="disclaimer">
         <strong>Disclaimer:</strong><br>
-        This website is for Telegram channel.
-        Visit our telegram channel to learn & earn.
+        This website is for Telegram channel. Visit our telegram channel to learn & earn.
     </div>
 
-    <!-- Footer -->
     <footer>
         © 2026 Hafiz Ayaan Siddiqui<br>
         <a href="https://t.me/+bKDGJToVeqo3ZDE8" target="_blank">Official Telegram</a>
@@ -84,29 +67,14 @@ fbq('track', 'PageView');
 </main>
 
 <script>
-/* Animated Subscriber Counter */
-let count = 15735; // Starting value
+/* Animated Subscriber Counter (not tracking) */
+let count = 15735;
 const counter = document.getElementById("subCount");
 
 setInterval(() => {
     count += Math.floor(Math.random() * 3);
     counter.innerText = count.toLocaleString();
 }, 3000);
-
-/* Subscribe + Redirect */
-function trackSubscribeAndRedirect(e) {
-    e.preventDefault(); // Prevent immediate redirect
-    const eventID = 'sub_' + Date.now();
-
-    fbq('track', 'Subscribe', {
-        content_name: 'Telegram Subscription'
-    }, { eventID: eventID });
-
-    // Redirect after 200ms
-    setTimeout(() => {
-        window.location.href = "https://t.me/+bKDGJToVeqo3ZDE8";
-    }, 200);
-}
 </script>
 
 </body>
